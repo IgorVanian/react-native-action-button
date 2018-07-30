@@ -195,6 +195,7 @@ export default class ActionButton extends Component {
       ]}
       >
         <Touchable
+          rejectResponderTermination
           testID={this.props.testID}
           background={touchableBackground(
             this.props.nativeFeedbackRippleColor,
@@ -281,7 +282,7 @@ export default class ActionButton extends Component {
               if (this.props.autoInactive) {
                 this.timeout = setTimeout(this.reset.bind(this), 200);
               }
-              ActionButton.props.onPress();
+              ActionButton.props.onPressIn();
             }}
           />
         ))}
@@ -292,6 +293,7 @@ export default class ActionButton extends Component {
   _renderTappableBackground() {
     return (
       <TouchableOpacity
+        rejectResponderTermination
         activeOpacity={1}
         style={this.getOverlayStyles()}
         onPress={this.reset.bind(this)}

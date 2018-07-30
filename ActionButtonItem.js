@@ -108,6 +108,7 @@ export default class ActionButtonItem extends Component {
       >
         <View>
           <Touchable
+            rejectResponderTermination
             testID={this.props.testID}
             background={touchableBackground(
               this.props.nativeFeedbackRippleColor,
@@ -115,6 +116,7 @@ export default class ActionButtonItem extends Component {
             )}
             activeOpacity={this.props.activeOpacity || DEFAULT_ACTIVE_OPACITY}
             onPress={this.props.onPress}
+            onPressIn={this.props.onPressIn}
           >
             <View style={[
               buttonStyle,
@@ -176,12 +178,14 @@ export default class ActionButtonItem extends Component {
 
     return (
       <TextTouchable
+        rejectResponderTermination
         background={touchableBackground(
           this.props.nativeFeedbackRippleColor,
           this.props.fixNativeFeedbackRadius
         )}
         activeOpacity={this.props.activeOpacity || DEFAULT_ACTIVE_OPACITY}
         onPress={this.props.onPress}
+        onPressIn={this.props.onPressIn}
       >
         <View style={textStyles}>
           {title}
